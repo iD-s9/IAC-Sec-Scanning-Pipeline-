@@ -1,0 +1,17 @@
+// INSECURE version: deliberately misconfigured so the scanner has something to catch
+param location string = resourceGroup().location
+param storageAccountName string = 'st${uniqueString(resourceGroup().id)}'
+
+resource storage 'Microsoft.Storage/storageAccounts@2023-01-01' = {
+  name: storageAccountName
+  location: location
+  sku: {
+    name: 'Standard_LRS'
+  }
+  kind: 'StorageV2'
+  properties: {
+    allowBlobPublicAccess: true
+    supportsHttpsTrafficOnly: false
+    minimumTlsVersion: 'TLS1_0'
+  }
+}

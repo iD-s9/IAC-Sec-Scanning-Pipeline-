@@ -1,0 +1,20 @@
+name: IaC Security Scan
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  checkov:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Run Checkov on Bicep files
+        uses: bridgecrewio/checkov-action@v12
+        with:
+          directory: .
+          framework: bicep
+          output_format: cli
+          soft_fail: false
