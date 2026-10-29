@@ -1,5 +1,5 @@
 param location string = resourceGroup().location
-param storageAccountName string = 'iacsecscan01'
+param storageAccountName string = 'stiacsecscan01'
 
 resource storage 'Microsoft.Storage/storageAccounts@2023-01-01' = {
   name: storageAccountName
@@ -14,5 +14,9 @@ resource storage 'Microsoft.Storage/storageAccounts@2023-01-01' = {
     minimumTlsVersion: 'TLS1_2'
     allowSharedKeyAccess: false
     publicNetworkAccess: 'Disabled'
+    networkAcls: {
+      defaultAction: 'Deny'
+      bypass: 'AzureServices'
+    }
   }
 }
