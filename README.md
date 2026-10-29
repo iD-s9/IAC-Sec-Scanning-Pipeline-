@@ -16,8 +16,8 @@ In the earlier projects, I secured Azure resources by clicking through the porta
 
 | State | Screenshot |
 |---|---|
-| Before: insecure template fails the Checkov scan | [`before.png`](./Screenshots/before.png) |
-| After: hardened template passes all checks (7 passed, 0 failed, 0 skipped) | [`after.png`](./Screenshots/after.png) |
+| Before: insecure template fails the Checkov scan | [`Before`](./Screenshots/before.png) |
+| After: hardened template passes all checks (7 passed, 0 failed, 0 skipped) | [`After`](./Screenshots/after.png) |
 
 ## What happened along the way
 
